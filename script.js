@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Opcional: Adicionar recompensas adicionais ou notificações
                 showCongratulationModal(item);
+
+                // Verificar se todas as etapas foram concluídas
+                checkStagesCompletion();
             }
         });
 
@@ -37,9 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             item.appendChild(dateElement);
         }
     });
-
-    // Checar e atualizar os stages principais se necessário
-    checkStagesCompletion();
 });
 
 /**
@@ -89,7 +89,7 @@ function showCongratulationModal(item) {
         if (event.target == modal) {
             modal.remove();
         }
-    });
+    }, { once: true }); // Use { once: true } para evitar múltiplos listeners
 }
 
 /**
@@ -144,5 +144,5 @@ function showSuccessModal(item) {
         if (event.target == modal) {
             modal.remove();
         }
-    });
+    }, { once: true }); // Use { once: true } para evitar múltiplos listeners
 }
