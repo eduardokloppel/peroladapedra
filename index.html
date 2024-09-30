@@ -26,7 +26,7 @@
     <!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid"> <!-- Alterado para container-fluid -->
+            <div class="container-fluid"> <!-- Deve estar usando container-fluid -->
                 <a class="navbar-brand" href="https://eduardokloppel.github.io/automatelabs/index.html">Automate<span class="text-gradient">Labs</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                     <span class="navbar-toggler-icon"></span>
@@ -56,33 +56,61 @@
     </header>
 
     <!-- Conteúdo do Fluxograma -->
-    <main class="flex-grow-1">
-        <div class="container mt-4"> <!-- Usando container para centralizar o conteúdo principal -->
+    <main class="flex-grow-1 d-flex justify-content-center"> <!-- Centralizando o fluxograma -->
+        <div class="container mt-4"> <!-- Container para centralizar o conteúdo principal -->
             <h1>Fluxograma de Automação</h1>
             <div class="flowchart">
-
                 <!-- Sub-etapas do Fluxograma -->
+                <!-- Primeira Conversa (Pré-concluído) -->
                 <div class="flowchart-row">
-                    <div class="flowchart-item sub-stage" id="primeira-conversa" tabindex="0" role="button" aria-pressed="false" aria-label="Primeira Conversa">
+                    <div class="flowchart-item sub-stage completed" id="primeira-conversa" tabindex="-1" aria-pressed="true" aria-label="Primeira Conversa">
                         <span><i class="fas fa-comments"></i> Primeira Conversa</span>
+                        <span class="date">Concluído em: 04/09/24</span>
+                        <!-- Adicionando as imagens de Eduardo e Eduarda -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
+                        <img src="images/Eduarda.jpg" alt="Eduarda" class="profile-pic profile-pic-2">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Mapeamento de Processos (Pré-concluído) -->
                 <div class="flowchart-row">
-                    <div class="flowchart-item sub-stage" id="mapeamento-processos" tabindex="0" role="button" aria-pressed="false" aria-label="Mapeamento de Processos">
+                    <div class="flowchart-item sub-stage completed" id="mapeamento-processos" tabindex="-1" aria-pressed="true" aria-label="Mapeamento de Processos">
                         <span><i class="fas fa-sitemap"></i> Mapeamento de Processos</span>
+                        <span class="date">Concluído em: 05/09/24</span>
+                        <!-- Adicionando as imagens de Eduardo e Eduarda -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Ideação (Pré-concluído) -->
                 <div class="flowchart-row">
-                    <div class="flowchart-item sub-stage" id="ideacao" tabindex="0" role="button" aria-pressed="false" aria-label="Ideação">
+                    <div class="flowchart-item sub-stage completed" id="ideacao" tabindex="-1" aria-pressed="true" aria-label="Ideação">
                         <span><i class="fas fa-lightbulb"></i> Ideação</span>
+                        <span class="date">Concluído em: 11/09/24</span>
+                        <!-- Adicionando as imagens de Filippi, Eduardo e Eduarda -->
+                        <img src="images/Filippi.jpg" alt="Filippi" class="profile-pic">
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic profile-pic-2">
+                        <img src="images/Eduarda.jpg" alt="Eduarda" class="profile-pic profile-pic-3">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Apresentação da Proposta (Novo Bloco) -->
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage completed" id="apresentacao-proposta" tabindex="-1" aria-pressed="true" aria-label="Apresentação da Proposta">
+                        <span><i class="fas fa-file-alt"></i> Apresentação da Proposta</span>
+                        <span class="date">Concluído em: 18/09/24</span>
+                        <!-- Adicionando as imagens de Filippi, Eduardo e Eduarda -->
+                        <img src="images/Filippi.jpg" alt="Filippi" class="profile-pic">
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic profile-pic-2">
+                        <img src="images/Eduarda.jpg" alt="Eduarda" class="profile-pic profile-pic-3">
+                    </div>
+                </div>
+                <div class="connector vertical"></div>
+    
+                <!-- Envio do Projeto (Filippi) -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="envio-projeto" tabindex="0" role="button" aria-pressed="false" aria-label="Envio do Projeto (Filippi)">
                         <span><i class="fas fa-paper-plane"></i> Envio do Projeto (Filippi)</span>
@@ -91,56 +119,81 @@
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Prova de Conceito -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="prova-conceito" tabindex="0" role="button" aria-pressed="false" aria-label="Prova de Conceito">
                         <span><i class="fas fa-check-circle"></i> Prova de Conceito</span>
+                        <span class="date">Concluído em: 12/09/24</span>
+                        <!-- Adicionando a imagem de Eduardo -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Protótipo -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="prototipo" tabindex="0" role="button" aria-pressed="false" aria-label="Protótipo">
                         <span><i class="fas fa-cogs"></i> Protótipo</span>
+                        <span class="date">Concluído em: 13/09/24</span>
+                        <!-- Adicionando a imagem de Eduardo -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Piloto -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="piloto" tabindex="0" role="button" aria-pressed="false" aria-label="Piloto">
                         <span><i class="fas fa-rocket"></i> Piloto</span>
+                        <span class="date">Concluído em: 14/09/24</span>
+                        <!-- Adicionando as imagens de Eduardo e Filippi -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
+                        <img src="images/Filippi.jpg" alt="Filippi" class="profile-pic profile-pic-2">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Integração Final -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="integracao-final" tabindex="0" role="button" aria-pressed="false" aria-label="Integração Final">
                         <span><i class="fas fa-plug"></i> Integração Final</span>
+                        <span class="date">Concluído em: 15/09/24</span>
+                        <!-- Adicionando a imagem de Eduardo -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Treinamento da Equipe -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="treinamento-equipe" tabindex="0" role="button" aria-pressed="false" aria-label="Treinamento da Equipe">
                         <span><i class="fas fa-chalkboard-teacher"></i> Treinamento da Equipe</span>
+                        <span class="date">Concluído em: 16/09/24</span>
+                        <!-- Adicionando a imagem de Eduardo -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
+                <!-- Monitoramento e Ajustes Pós-implementação -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="monitoramento-ajustes" tabindex="0" role="button" aria-pressed="false" aria-label="Monitoramento e Ajustes Pós-implementação">
                         <span><i class="fas fa-chart-line"></i> Monitoramento e Ajustes Pós-implementação</span>
+                        <span class="date">Concluído em: 17/09/24</span>
+                        <!-- Adicionando a imagem de Eduardo -->
+                        <img src="images/Eduardo.jpg" alt="Eduardo" class="profile-pic">
                     </div>
                 </div>
                 <div class="connector vertical"></div>
-
+    
                 <!-- Sucesso -->
                 <div class="flowchart-row">
                     <div class="flowchart-item sub-stage" id="sucesso" tabindex="0" role="button" aria-pressed="false" aria-label="Sucesso">
                         <span><i class="fas fa-flag-checkered"></i> Sucesso</span>
                     </div>
                 </div>
-
+    
             </div>
         </div>
     </main>

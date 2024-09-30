@@ -12,6 +12,7 @@
     
     /* Outras Variáveis */
     --quiz-selected-color: #00e676; /* Verde Vibrante */
+    --completed-color: #00e676; /* Verde para blocos concluídos */
 
     /* Cores de Fundo */
     --background-color: #ffffff; /* Branco */
@@ -64,9 +65,9 @@ body {
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Permite que elementos filhos ocupem toda a largura */
+    align-items: stretch; /* Alterado de center para stretch */
     min-height: 100vh;
-    padding: 0; /* Remove padding para que a navbar ocupe toda a largura */
+    padding: 0; /* Remove padding para que o navbar ocupe toda a largura */
 }
 
 h1 {
@@ -77,11 +78,13 @@ h1 {
 }
 
 .navbar {
-    /* Nenhum estilo adicional necessário para expandir a largura */
+    width: 100%; /* Garante que o navbar ocupe toda a largura */
+    align-self: stretch; /* Permite que o navbar estenda horizontalmente */
 }
 
 .navbar-brand {
     font-weight: 600;
+    padding-left: 85px;
 }
 
 .nav-link {
@@ -95,12 +98,13 @@ h1 {
 }
 
 .flowchart {
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px; /* Aumentado para acomodar mais blocos */
 }
 
 .flowchart-row {
@@ -120,7 +124,7 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s, border 0.3s, box-shadow 0.3s;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px; /* Aumentado para melhor espaçamento */
     border: 1px solid var(--border-color); /* Borda Cinza Escuro */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra Leve */
 }
@@ -139,41 +143,93 @@ h1 {
 .flowchart-item.sub-stage {
     background-color: var(--bg-section);
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     font-weight: 500;
 }
 
 .flowchart-item.sub-stage.completed {
-    background-color: var(--quiz-selected-color);
+    background-color: var(--completed-color);
     color: #ffffff;
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra Leve ao Concluir */
+    cursor: default; /* Muda o cursor para indicar que não é clicável */
 }
 
-.flowchart-item.sub-stage.completed span {
+.flowchart-item.sub-stage.completed span.date {
     color: #ffffff;
 }
 
-.flowchart-item.sub-stage:hover {
+.flowchart-item.sub-stage.completed:hover {
+    background-color: var(--completed-color); /* Mantém a cor ao passar o mouse */
+}
+
+.flowchart-item.sub-stage:hover:not(.completed) {
     background-color: var(--accent-color);
     color: #ffffff;
 }
 
-.flowchart-item.sub-stage:hover span {
+.flowchart-item.sub-stage:hover:not(.completed) span.date {
     color: #ffffff;
 }
 
 .flowchart-item .date {
+    display: block; /* Garante que a data ocupe uma linha separada */
     margin-top: 5px;
     font-size: 0.8em;
     color: var(--text-secondary);
 }
 
+/* Estilos para as imagens dos perfis */
+.profile-pic {
+    position: absolute;
+    bottom: -10px; /* Permite que a imagem ultrapasse o limite inferior do bloco */
+    right: 5px;     /* Posição no canto direito */
+    width: 25px;    /* Tamanho menor da imagem */
+    height: 25px;   /* Tamanho menor da imagem */
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem cubra completamente o círculo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil para destacar a imagem */
+    z-index: 1;     /* Garante que a imagem fique acima de outros elementos dentro do bloco */
+}
+
+/* Estilos adicionais para múltiplas imagens */
+.profile-pic-2 {
+    bottom: -10px;    /* Mantém a mesma base para alinhamento vertical */
+    right: 35px;      /* Ajusta a posição para a segunda imagem */
+    width: 25px;
+    height: 25px;
+}
+
+.profile-pic-3 {
+    bottom: -10px;    /* Mantém a mesma base para alinhamento vertical */
+    right: 65px;      /* Ajusta a posição para a terceira imagem */
+    width: 25px;
+    height: 25px;
+}
+
+/* Garantir que os blocos com múltiplas imagens tenham position: relative */
+#primeira-conversa,
+#mapeamento-processos,
+#ideacao,
+#apresentacao-proposta,
+#envio-projeto,
+#prova-conceito,
+#prototipo,
+#piloto,
+#integracao-final,
+#treinamento-equipe,
+#monitoramento-ajustes,
+#sucesso {
+    position: relative;
+}
+
+/* Estilos para as linhas de conexão */
 .connector.vertical {
     width: 2px;
     height: 30px;
     background-color: var(--secondary-color);
     margin: 0 auto;
+    z-index: 0; /* Garante que a linha esteja atrás de outros elementos */
 }
 
 /* Ajustes para o último conector */
@@ -208,24 +264,6 @@ h1 {
     }
 }
 
-/* Estilos para a imagem do perfil */
-.profile-pic {
-    position: absolute;
-    bottom: 5px; /* Ajuste para posicionamento mais próximo do canto */
-    right: 5px;  /* Ajuste para posicionamento mais próximo do canto */
-    width: 30px;   /* Tamanho menor da imagem */
-    height: 30px;  /* Tamanho menor da imagem */
-    border-radius: 50%; /* Torna a imagem circular */
-    object-fit: cover; /* Garante que a imagem cubra completamente o círculo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil para destacar a imagem */
-    z-index: 1; /* Garante que a imagem fique acima de outros elementos dentro do bloco */
-}
-
-/* Garantir que o bloco "Envio do Projeto (Filippi)" tenha position: relative */
-#envio-projeto {
-    position: relative;
-}
-
 /* Estilos para o Modal */
 .modal {
     position: fixed;
@@ -257,4 +295,10 @@ h1 {
     font-size: 1.5em;
     cursor: pointer;
     color: var(--primary-color);
+}
+
+main .container {
+    max-width: 800px; /* Define uma largura máxima para o conteúdo */
+    margin-left: auto;
+    margin-right: auto;
 }

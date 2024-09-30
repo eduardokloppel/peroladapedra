@@ -2,46 +2,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const flowchartItems = document.querySelectorAll('.flowchart-item.sub-stage');
 
     flowchartItems.forEach(item => {
-        // Adicionar suporte para navegação por teclado
-        item.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                item.click();
-            }
-        });
+        // Verificar se o bloco já está pré-concluído
+        if (!item.classList.contains('completed')) {
+            // Adicionar suporte para navegação por teclado
+            item.setAttribute('tabindex', '0'); // Tornar focável apenas se não estiver concluído
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
 
-        // Evento de clique
-        item.addEventListener('click', () => {
-            if (!item.classList.contains('completed')) {
-                item.classList.add('completed');
-                const date = new Date().toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric'
-                });
-                const dateElement = document.createElement('span');
-                dateElement.classList.add('date');
-                dateElement.textContent = `Concluído em: ${date}`;
-                item.appendChild(dateElement);
-                // Salvar no localStorage
-                saveItemState(item.id, date);
+            // Evento de clique
+            item.addEventListener('click', () => {
+                if (!item.classList.contains('completed')) {
+                    item.classList.add('completed');
+                    const date = new Date().toLocaleDateString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: '2-digit' // Formato DD/MM/AA
+                    });
+                    const dateElement = document.createElement('span');
+                    dateElement.classList.add('date');
+                    dateElement.textContent = `Concluído em: ${date}`;
+                    item.appendChild(dateElement);
+                    // Salvar no localStorage
+                    saveItemState(item.id, date);
 
-                // Exibir modal de congratulação
-                showCongratulationModal(item);
+                    // Exibir modal de congratulação
+                    showCongratulationModal(item);
 
-                // Verificar se todas as etapas foram concluídas
-                checkStagesCompletion();
-            }
-        });
-
-        // Verificar se o item já foi concluído
-        const savedDate = getItemState(item.id);
-        if (savedDate) {
-            item.classList.add('completed');
-            const dateElement = document.createElement('span');
-            dateElement.classList.add('date');
-            dateElement.textContent = `Concluído em: ${savedDate}`;
-            item.appendChild(dateElement);
+                    // Verificar se todas as etapas foram concluídas
+                    checkStagesCompletion();
+                }
+            });
         }
     });
 
@@ -115,7 +109,7 @@ function checkStagesCompletion() {
             const date = new Date().toLocaleDateString('pt-BR', {
                 day: '2-digit',
                 month: '2-digit',
-                year: 'numeric'
+                year: '2-digit'
             });
             const dateElement = document.createElement('span');
             dateElement.classList.add('date');
