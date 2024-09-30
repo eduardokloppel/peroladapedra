@@ -3,42 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxograma de Automação</title>
+    <title>Fluxograma Interativo</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para ícones (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="flowchart-container">
+
+    <div id="app" class="fade-in">
         <h1>Fluxograma de Automação</h1>
         <div class="flowchart">
-            <div class="stage">Workshop Consultivo</div>
-            <div class="stage">Diagnóstico</div>
-            <div class="stage">Implementação</div>
-            <div class="stage">Sucesso</div>
-            
-            <div class="sub-stage" id="primeira-conversa">Primeira Conversa</div>
-            <div class="sub-stage" id="mapeamento-processos">Mapeamento de Processos</div>
-            <div class="sub-stage" id="ideacao">Ideação</div>
-            <div class="sub-stage" id="envio-projeto">Envio do Projeto (Filippi)</div>
-            <div class="sub-stage" id="prova-conceito">Prova de Conceito</div>
-            <div class="sub-stage" id="protótipo">Protótipo</div>
-            <div class="sub-stage" id="piloto">Piloto</div>
-            <div class="sub-stage" id="integracao-final">Integração Final</div>
-            <div class="sub-stage" id="treinamento-equipe">Treinamento da Equipe</div>
-            <div class="sub-stage" id="monitoramento-ajustes">Monitoramento e Ajustes Pós-implementação</div>
-        </div>
-        <div class="scoreboard">
-            <h2>Pontuação</h2>
-            <p>Total de Etapas Concluídas: <span id="score">0</span></p>
-            <h3>Leaderboard</h3>
-            <ul id="leaderboard">
-                <!-- Exemplo de líderes -->
-                <li>Eduardo - 50 pontos</li>
-                <li>Filippi - 40 pontos</li>
-                <li>Camila - 30 pontos</li>
-            </ul>
+
+            <!-- Sub-etapas do Fluxograma -->
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="primeira-conversa" tabindex="0" role="button" aria-pressed="false" aria-label="Primeira Conversa">
+                    <span><i class="fas fa-comments"></i> Primeira Conversa</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="mapeamento-processos" tabindex="0" role="button" aria-pressed="false" aria-label="Mapeamento de Processos">
+                    <span><i class="fas fa-sitemap"></i> Mapeamento de Processos</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="ideacao" tabindex="0" role="button" aria-pressed="false" aria-label="Ideação">
+                    <span><i class="fas fa-lightbulb"></i> Ideação</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="envio-projeto" tabindex="0" role="button" aria-pressed="false" aria-label="Envio do Projeto (Filippi)">
+                    <span><i class="fas fa-paper-plane"></i> Envio do Projeto (Filippi)</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="prova-conceito" tabindex="0" role="button" aria-pressed="false" aria-label="Prova de Conceito">
+                    <span><i class="fas fa-check-circle"></i> Prova de Conceito</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="prototipo" tabindex="0" role="button" aria-pressed="false" aria-label="Protótipo">
+                    <span><i class="fas fa-cogs"></i> Protótipo</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="piloto" tabindex="0" role="button" aria-pressed="false" aria-label="Piloto">
+                    <span><i class="fas fa-rocket"></i> Piloto</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="integracao-final" tabindex="0" role="button" aria-pressed="false" aria-label="Integração Final">
+                    <span><i class="fas fa-plug"></i> Integração Final</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="treinamento-equipe" tabindex="0" role="button" aria-pressed="false" aria-label="Treinamento da Equipe">
+                    <span><i class="fas fa-chalkboard-teacher"></i> Treinamento da Equipe</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="monitoramento-ajustes" tabindex="0" role="button" aria-pressed="false" aria-label="Monitoramento e Ajustes Pós-implementação">
+                    <span><i class="fas fa-chart-line"></i> Monitoramento e Ajustes Pós-implementação</span>
+                </div>
+            </div>
+            <div class="connector vertical"></div>
+
+            <!-- Sucesso -->
+            <div class="flowchart-row">
+                <div class="flowchart-item sub-stage" id="sucesso" tabindex="0" role="button" aria-pressed="false" aria-label="Sucesso">
+                    <span><i class="fas fa-flag-checkered"></i> Sucesso</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

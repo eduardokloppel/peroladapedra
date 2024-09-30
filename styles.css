@@ -1,75 +1,213 @@
-body {
-    font-family: 'Arial, sans-serif';
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Importa uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Variáveis de cores */
+:root {
+    /* Cores Primárias */
+    --primary-color: #6a11cb; /* Roxo */
+    --secondary-color: #2575fc; /* Azul */
+    
+    /* Cores de Destaque */
+    --accent-color: #ff7e5f; /* Laranja Vibrante */
+    
+    /* Outras Variáveis */
+    --quiz-selected-color: #00e676; /* Verde Vibrante */
+
+    /* Cores de Fundo */
+    --background-color: #ffffff; /* Branco */
+    --navbar-background: #f8f9fa; /* Cinza Claro para Navbar */
+    --section-background: #f2f2f2; /* Cinza Muito Claro para Seções */
+    --bg-section: #f9f9f9; /* Cor de Fundo para Seções Específicas */
+    
+    /* Cores de Texto */
+    --text-primary: #212529; /* Preto Escuro para Texto Principal */
+    --text-secondary: #6c757d; /* Cinza Médio para Texto Secundário */
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    
+    /* Cores para Botões */
+    --btn-gradient: var(--gradient-primary);
+    --btn-gradient-hover: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    
+    --btn-secondary-gradient: linear-gradient(45deg, var(--accent-color), #feb47b);
+    --btn-secondary-gradient-hover: linear-gradient(45deg, #feb47b, var(--accent-color));
+    
+    /* Cores para Footer */
+    --footer-background: #f8f9fa;
+    --footer-text: #6c757d;
+    
+    /* Borda Cinza Escuro */
+    --border-color: #333333; /* Cinza Escuro */
 }
 
-.flowchart-container {
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
     text-align: center;
+    color: var(--primary-color);
 }
 
 .flowchart {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
-.stage {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 25px;
-    margin: 10px 0;
-    border-radius: 10px;
-    font-size: 1.2em;
-    width: 300px;
-    text-align: center;
-}
-
-.sub-stage {
-    background-color: #2196F3;
-    color: white;
-    padding: 10px 20px;
-    margin: 5px 0;
-    border-radius: 10px;
-    font-size: 1em;
-    width: 250px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+.flowchart-row {
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 
-.sub-stage.completed {
-    background-color: #4CAF50;
+.flowchart-item {
+    background-color: var(--bg-section);
+    color: var(--text-primary);
+    padding: 15px 25px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, border 0.3s;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-color); /* Borda Cinza Escuro */
+}
+
+.flowchart-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flowchart-item i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.flowchart-item.sub-stage {
+    background-color: var(--bg-section);
+    width: 100%;
+    max-width: 400px;
+    font-weight: 500;
+}
+
+.flowchart-item.sub-stage.completed {
+    background-color: var(--quiz-selected-color);
+    color: #ffffff;
     transform: scale(1.05);
 }
 
-.sub-stage .date {
-    display: block;
+.flowchart-item.sub-stage.completed span {
+    color: #ffffff;
+}
+
+.flowchart-item.sub-stage:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.flowchart-item.sub-stage:hover span {
+    color: #ffffff;
+}
+
+.flowchart-item .date {
     margin-top: 5px;
     font-size: 0.8em;
-    color: #fff;
+    color: var(--text-secondary);
 }
 
-.sub-stage:hover {
-    background-color: #1976D2;
+.connector.vertical {
+    width: 2px;
+    height: 30px;
+    background-color: var(--secondary-color);
+    margin: 0 auto;
 }
 
-.scoreboard {
-    background-color: #ffffff;
-    padding: 15px 25px;
+/* Remoção de conectores horizontais, já que o layout é linear */
+
+/* Ajustes para o último conector */
+.connector.vertical:last-child {
+    display: none;
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .flowchart-item {
+        max-width: 90%;
+    }
+
+    .connector.horizontal {
+        display: none;
+    }
+}
+
+/* Estilos para o Modal (opcional) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0,0,0,0.5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    color: var(--text-primary);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.scoreboard h2 {
-    margin-bottom: 10px;
-}
-
-.scoreboard p {
-    font-size: 1.1em;
+.close-button {
+    position: absolute;
+    top:10px;
+    right:15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--primary-color);
 }
