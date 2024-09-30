@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxograma de Automação</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="flowchart-container">
+        <h1>Fluxograma de Automação</h1>
+        <div class="flowchart">
+            <div class="stage">Workshop Consultivo</div>
+            <div class="stage">Diagnóstico</div>
+            <div class="stage">Implementação</div>
+            <div class="stage">Sucesso</div>
+            
+            <div class="sub-stage" id="primeira-conversa">Primeira Conversa</div>
+            <div class="sub-stage" id="mapeamento-processos">Mapeamento de Processos</div>
+            <div class="sub-stage" id="ideacao">Ideação</div>
+            <div class="sub-stage" id="envio-projeto">Envio do Projeto (Filippi)</div>
+            <div class="sub-stage" id="prova-conceito">Prova de Conceito</div>
+            <div class="sub-stage" id="protótipo">Protótipo</div>
+            <div class="sub-stage" id="piloto">Piloto</div>
+            <div class="sub-stage" id="integracao-final">Integração Final</div>
+            <div class="sub-stage" id="treinamento-equipe">Treinamento da Equipe</div>
+            <div class="sub-stage" id="monitoramento-ajustes">Monitoramento e Ajustes Pós-implementação</div>
+        </div>
+        <div class="scoreboard">
+            <h2>Pontuação</h2>
+            <p>Total de Etapas Concluídas: <span id="score">0</span></p>
+            <h3>Leaderboard</h3>
+            <ul id="leaderboard">
+                <!-- Exemplo de líderes -->
+                <li>Eduardo - 50 pontos</li>
+                <li>Filippi - 40 pontos</li>
+                <li>Camila - 30 pontos</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
