@@ -2,21 +2,32 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluxograma Interativo</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Fluxograma Interativo - AutomateLabs">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- AOS CSS (Opcional para animações) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">Automate<span class="text-gradient">Labs</span></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid"> <!-- Alterado para container-fluid -->
+                <a class="navbar-brand" href="https://eduardokloppel.github.io/automatelabs/index.html">Automate<span class="text-gradient">Labs</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,19 +35,19 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Links da Navbar -->
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="https://eduardokloppel.github.io/automatelabs/index.html">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="solutions.html">Soluções</a>
+                            <a class="nav-link" href="https://eduardokloppel.github.io/automatelabs/solutions.html">Soluções</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="about.html">Sobre Nós</a>
+                            <a class="nav-link active" href="https://eduardokloppel.github.io/automatelabs/about.html">Sobre Nós</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="https://eduardokloppel.github.io/automatelabs/blog.html">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contato</a>
+                            <a class="nav-link" href="https://eduardokloppel.github.io/automatelabs/contact.html">Contato</a>
                         </li>
                     </ul>
                 </div>
@@ -45,94 +56,102 @@
     </header>
 
     <!-- Conteúdo do Fluxograma -->
-    <div id="app" class="fade-in">
-        <h1>Fluxograma de Automação</h1>
-        <div class="flowchart">
+    <main class="flex-grow-1">
+        <div class="container mt-4"> <!-- Usando container para centralizar o conteúdo principal -->
+            <h1>Fluxograma de Automação</h1>
+            <div class="flowchart">
 
-            <!-- Sub-etapas do Fluxograma -->
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="primeira-conversa" tabindex="0" role="button" aria-pressed="false" aria-label="Primeira Conversa">
-                    <span><i class="fas fa-comments"></i> Primeira Conversa</span>
+                <!-- Sub-etapas do Fluxograma -->
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="primeira-conversa" tabindex="0" role="button" aria-pressed="false" aria-label="Primeira Conversa">
+                        <span><i class="fas fa-comments"></i> Primeira Conversa</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="mapeamento-processos" tabindex="0" role="button" aria-pressed="false" aria-label="Mapeamento de Processos">
-                    <span><i class="fas fa-sitemap"></i> Mapeamento de Processos</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="mapeamento-processos" tabindex="0" role="button" aria-pressed="false" aria-label="Mapeamento de Processos">
+                        <span><i class="fas fa-sitemap"></i> Mapeamento de Processos</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="ideacao" tabindex="0" role="button" aria-pressed="false" aria-label="Ideação">
-                    <span><i class="fas fa-lightbulb"></i> Ideação</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="ideacao" tabindex="0" role="button" aria-pressed="false" aria-label="Ideação">
+                        <span><i class="fas fa-lightbulb"></i> Ideação</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="envio-projeto" tabindex="0" role="button" aria-pressed="false" aria-label="Envio do Projeto (Filippi)">
-                    <span><i class="fas fa-paper-plane"></i> Envio do Projeto (Filippi)</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="envio-projeto" tabindex="0" role="button" aria-pressed="false" aria-label="Envio do Projeto (Filippi)">
+                        <span><i class="fas fa-paper-plane"></i> Envio do Projeto (Filippi)</span>
+                        <!-- Adicionando a imagem do Filippi -->
+                        <img src="images/Filippi.jpg" alt="Filippi" class="profile-pic">
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="prova-conceito" tabindex="0" role="button" aria-pressed="false" aria-label="Prova de Conceito">
-                    <span><i class="fas fa-check-circle"></i> Prova de Conceito</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="prova-conceito" tabindex="0" role="button" aria-pressed="false" aria-label="Prova de Conceito">
+                        <span><i class="fas fa-check-circle"></i> Prova de Conceito</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="prototipo" tabindex="0" role="button" aria-pressed="false" aria-label="Protótipo">
-                    <span><i class="fas fa-cogs"></i> Protótipo</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="prototipo" tabindex="0" role="button" aria-pressed="false" aria-label="Protótipo">
+                        <span><i class="fas fa-cogs"></i> Protótipo</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="piloto" tabindex="0" role="button" aria-pressed="false" aria-label="Piloto">
-                    <span><i class="fas fa-rocket"></i> Piloto</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="piloto" tabindex="0" role="button" aria-pressed="false" aria-label="Piloto">
+                        <span><i class="fas fa-rocket"></i> Piloto</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="integracao-final" tabindex="0" role="button" aria-pressed="false" aria-label="Integração Final">
-                    <span><i class="fas fa-plug"></i> Integração Final</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="integracao-final" tabindex="0" role="button" aria-pressed="false" aria-label="Integração Final">
+                        <span><i class="fas fa-plug"></i> Integração Final</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="treinamento-equipe" tabindex="0" role="button" aria-pressed="false" aria-label="Treinamento da Equipe">
-                    <span><i class="fas fa-chalkboard-teacher"></i> Treinamento da Equipe</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="treinamento-equipe" tabindex="0" role="button" aria-pressed="false" aria-label="Treinamento da Equipe">
+                        <span><i class="fas fa-chalkboard-teacher"></i> Treinamento da Equipe</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="monitoramento-ajustes" tabindex="0" role="button" aria-pressed="false" aria-label="Monitoramento e Ajustes Pós-implementação">
-                    <span><i class="fas fa-chart-line"></i> Monitoramento e Ajustes Pós-implementação</span>
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="monitoramento-ajustes" tabindex="0" role="button" aria-pressed="false" aria-label="Monitoramento e Ajustes Pós-implementação">
+                        <span><i class="fas fa-chart-line"></i> Monitoramento e Ajustes Pós-implementação</span>
+                    </div>
                 </div>
-            </div>
-            <div class="connector vertical"></div>
+                <div class="connector vertical"></div>
 
-            <!-- Sucesso -->
-            <div class="flowchart-row">
-                <div class="flowchart-item sub-stage" id="sucesso" tabindex="0" role="button" aria-pressed="false" aria-label="Sucesso">
-                    <span><i class="fas fa-flag-checkered"></i> Sucesso</span>
+                <!-- Sucesso -->
+                <div class="flowchart-row">
+                    <div class="flowchart-item sub-stage" id="sucesso" tabindex="0" role="button" aria-pressed="false" aria-label="Sucesso">
+                        <span><i class="fas fa-flag-checkered"></i> Sucesso</span>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
+    </main>
 
     <!-- Bootstrap JS (incluindo Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
 
+    <!-- AOS JS (Opcional para animações) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>

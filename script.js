@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', () => {
             if (!item.classList.contains('completed')) {
                 item.classList.add('completed');
-                const date = new Date().toLocaleDateString();
+                const date = new Date().toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
                 const dateElement = document.createElement('span');
                 dateElement.classList.add('date');
                 dateElement.textContent = `Concluído em: ${date}`;
@@ -22,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Salvar no localStorage
                 saveItemState(item.id, date);
 
-                // Opcional: Adicionar recompensas adicionais ou notificações
+                // Exibir modal de congratulação
                 showCongratulationModal(item);
 
                 // Verificar se todas as etapas foram concluídas
@@ -40,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             item.appendChild(dateElement);
         }
     });
+
+    // Inicializar AOS (se estiver usando)
+    if (typeof AOS !== 'undefined') {
+        AOS.init();
+    }
 });
 
 /**
@@ -89,7 +98,7 @@ function showCongratulationModal(item) {
         if (event.target == modal) {
             modal.remove();
         }
-    }, { once: true }); // Use { once: true } para evitar múltiplos listeners
+    });
 }
 
 /**
@@ -103,7 +112,11 @@ function checkStagesCompletion() {
         const sucessoItem = document.getElementById('sucesso');
         if (!sucessoItem.classList.contains('completed')) {
             sucessoItem.classList.add('completed');
-            const date = new Date().toLocaleDateString();
+            const date = new Date().toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
             const dateElement = document.createElement('span');
             dateElement.classList.add('date');
             dateElement.textContent = `Concluído em: ${date}`;
@@ -112,7 +125,7 @@ function checkStagesCompletion() {
             // Salvar no localStorage
             saveItemState(sucessoItem.id, date);
 
-            // Opcional: Mostrar um modal de sucesso
+            // Exibir modal de sucesso
             showSuccessModal(sucessoItem);
         }
     }
@@ -144,5 +157,5 @@ function showSuccessModal(item) {
         if (event.target == modal) {
             modal.remove();
         }
-    }, { once: true }); // Use { once: true } para evitar múltiplos listeners
+    });
 }
